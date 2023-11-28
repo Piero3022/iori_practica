@@ -11,6 +11,9 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 from pathlib import Path
+import json
+import dj_database_url
+from os import environ
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
@@ -26,7 +29,7 @@ SECRET_KEY = '^ffuk2t05^1@vav$z7@0yvga65we5p$c)*xd@7yrq5j%2$92&b'
 DEBUG = True
 
 ALLOWED_HOSTS = [".awsapprunner.com"]
-
+#http://127.0.0.1:8000/
 
 # Application definition
 
@@ -77,12 +80,20 @@ WSGI_APPLICATION = 'iori_register.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
+
+    
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'postgresbdiori',
+        'USER': 'piero3022',
+        'PASSWORD': 'piero3022',
+        'HOST': 'django-apprunner-db.cujmilbare6n.us-east-2.rds.amazonaws.com',
+        'PORT': '5432',
     }
 }
+
+
 
 
 # Password validation
@@ -117,6 +128,9 @@ USE_L10N = True
 
 USE_TZ = True
 
+STATIC_URL = '/static/'
+STATIC_ROOT = BASE_DIR / "staticfiles"
+
 STORAGES = {
     "default": {
         "BACKEND": "django.core.files.storage.FileSystemStorage",
@@ -129,5 +143,4 @@ STORAGES = {
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
-STATIC_URL = '/static/'
-STATIC_ROOT = BASE_DIR / "staticfiles"
+
