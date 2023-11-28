@@ -11,7 +11,9 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 from pathlib import Path
+import json
 import dj_database_url
+from os import environ
 
 
 
@@ -86,11 +88,12 @@ WSGI_APPLICATION = 'iori_register.wsgi.application'
     #DATABASES = {"default": dj_database_url.parse(db_url)}
 #else:
 
-DATABASES = {
-    "default": dj_database_url.parse(
-        "postgres://piero3022:piero3022@django-apprunner-db.cujmilbare6n.us-east-2.rds.amazonaws.com/postgresbdiori"
-    )
-}
+if "DATABASE_SECRET" in environ:
+    database_secret = environ.get("DATABASE_SECRET")
+    db_url = json.loads(database_secret)["DATABASE_URL"]
+    DATABASES = {"default": dj_database_url.parse(db_url)}
+else:
+    DATABASES = {"default": dj_database_url.parse("sqlite:///db.sqlite3")}
 
 
 
