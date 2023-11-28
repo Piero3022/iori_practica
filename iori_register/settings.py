@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 from pathlib import Path
+import dj_database_url
+
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -24,7 +26,7 @@ BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
 SECRET_KEY = '^ffuk2t05^1@vav$z7@0yvga65we5p$c)*xd@7yrq5j%2$92&b'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = [".awsapprunner.com"]
 #http://127.0.0.1:8000/
@@ -78,18 +80,19 @@ WSGI_APPLICATION = 'iori_register.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
+#if "DATABASE_SECRET" in environ:
+    #database_secret = environ.get("DATABASE_SECRET")
+    #db_url = json.loads(database_secret)["DATABASE_URL"]
+    #DATABASES = {"default": dj_database_url.parse(db_url)}
+#else:
 
-    
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'postgresbdiori',
-        'USER': 'piero3022',
-        'PASSWORD': 'piero3022',
-        'HOST': 'django-apprunner-db.cujmilbare6n.us-east-2.rds.amazonaws.com',
-        'PORT': '5432',
-    }
+    "default": dj_database_url.parse(
+        "postgres://piero3022:piero3022@django-apprunner-db.cujmilbare6n.us-east-2.rds.amazonaws.com/postgresbdiori"
+    )
 }
+
+
 
 
 
