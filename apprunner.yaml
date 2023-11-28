@@ -12,3 +12,5 @@ run:
   secrets:
     - name: DATABASE_SECRET
       value-from: "arn:aws:secretsmanager:us-east-2:871063620758:secret:DATABASE_SECRET-CisC9o"
+instance-role:
+  arn: "arn:aws:iam::871063620758:role/aws-service-role/apprunner.amazonaws.com/AWSServiceRoleForAppRunner"
