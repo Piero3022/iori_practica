@@ -10,5 +10,5 @@ run:
   network:
     port: 8000
   secrets:
-    - name: DATABASE_SECRET
-      value-from: "arn:aws:secretsmanager:us-east-1:871063620758:secret:DATABASE_SECRET-1eWdgU"
+    - name: DATABASE_SECRET2
+      value-from: "arn:aws:secretsmanager:us-east-1:871063620758:secret:DATABASE_SECRET2-kEL4lw"

@@ -88,8 +88,8 @@ WSGI_APPLICATION = 'iori_register.wsgi.application'
     #DATABASES = {"default": dj_database_url.parse(db_url)}
 #else:
 
-if "DATABASE_SECRET" in environ:
-    database_secret = environ.get("DATABASE_SECRET")
+if "DATABASE_SECRET2" in environ:
+    database_secret = environ.get("DATABASE_SECRET2")
     db_url = json.loads(database_secret)["DATABASE_URL"]
     DATABASES = {"default": dj_database_url.parse(db_url)}
 else:
