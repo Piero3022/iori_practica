@@ -30,7 +30,7 @@ SECRET_KEY = '^ffuk2t05^1@vav$z7@0yvga65we5p$c)*xd@7yrq5j%2$92&b'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = [".awsapprunner.com"]
 #http://127.0.0.1:8000/
 
 # Application definition
