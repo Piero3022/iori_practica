@@ -1,2 +1,2 @@
 #!/bin/bash
-python manage.py migrate && python manage.py collectstatic --no-input && gunicorn --workers 2 iori_register.wsgi
+python manage.py migrate && python manage.py collectstatic --no-input && gunicorn iori_register.wsgi
