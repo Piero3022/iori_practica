@@ -88,12 +88,19 @@ WSGI_APPLICATION = 'iori_register.wsgi.application'
     #DATABASES = {"default": dj_database_url.parse(db_url)}
 #else:
 
-if "DATABASE_SECRET2" in environ:
-    database_secret = environ.get("DATABASE_SECRET2")
-    db_url = json.loads(database_secret)["DATABASE_URL"]
-    DATABASES = {"default": dj_database_url.parse(db_url)}
-else:
-    DATABASES = {"default": dj_database_url.parse("sqlite:///db.sqlite3")}
+#if "DATABASE_SECRET2" in environ:
+#    database_secret = environ.get("DATABASE_SECRET2")
+#    db_url = json.loads(database_secret)["DATABASE_URL"]
+#    DATABASES = {"default": dj_database_url.parse(db_url)}
+#else:
+#    DATABASES = {"default": dj_database_url.parse("sqlite:///db.sqlite3")}
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}
 
 
 
